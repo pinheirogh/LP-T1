@@ -17,6 +17,17 @@ converterNotaParaMencao nota
     | nota == 0.0 = "SR"
 
 -- ex3
+isDecrescente :: [Int] -> Bool
+isDecrescente [] = True
+isDecrescente [x] = True
+isDecrescente (x:y:xs)
+    | y == x-1 = isDecrescente (y:xs)
+    | otherwise = False
+
+-- criar função que percorre os elementos de uma lista e verifica se o elemento anterior é maior que o atual
+-- pegar primeiro e ultimo elemento e definir uma lista descrescente, comparar com lista recebida, se igual, retornar True, se não, retornar False
+-- pegar primeiro elemento e tamanho da lista, definir lista descrescente, comparar com lista recebida, se igual, retornar True, se não, retornar False
+
 -- ex4
 -- ex5
 -- ex6
