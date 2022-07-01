@@ -21,7 +21,7 @@ isDecrescente :: [Int] -> Bool
 isDecrescente [] = True
 isDecrescente [x] = True
 isDecrescente (x:y:xs)
-    | y == x-1 = isDecrescente (y:xs)
+    | y < x = isDecrescente (y:xs)
     | otherwise = False
 
 -- criar função que percorre os elementos de uma lista e verifica se o elemento anterior é maior que o atual
@@ -29,6 +29,12 @@ isDecrescente (x:y:xs)
 -- pegar primeiro elemento e tamanho da lista, definir lista descrescente, comparar com lista recebida, se igual, retornar True, se não, retornar False
 
 -- ex4
+histograma :: [String] -> [(String, Int)]
+histograma [] = []
+histograma (x:xs) = h:s 
+    where h = (x, length (filter (\y -> y == x) (x:xs)))
+          s = histograma (filter (\y -> y /= x) xs)
+
 -- ex5
 -- ex6
 -- ex7	
