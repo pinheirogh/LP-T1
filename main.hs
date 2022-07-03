@@ -1,4 +1,5 @@
-import Data.List (sort)
+import Data.List (sortBy)
+import Data.Function (on)
 
 -- ex1
 maior4 :: Int -> Int -> Int -> Int -> Int
@@ -44,6 +45,14 @@ myZipWith _ _ [] = []
 myZipWith f (a:as) (b:bs) = f a b : myZipWith f as bs
 
 -- ex6
+aprovadosOrdemDeMedia :: [(String,Float,Float)] -> [(String,Float)]
+aprovadosOrdemDeMedia [] = []
+aprovadosOrdemDeMedia ((n,a,b):xs)
+    | ((a+b)/2.0) < 5.0 = []
+    | ((a+b)/2.0) >= 5.0 = sortBy (compare `on` snd) ([(n,(a+b)/2.0)] ++ aprovadosOrdemDeMedia xs)
+
+-- implementar função de comparação para sortBy caso optar por não importar bibliotecas https://youtu.be/N0K6EfWohmc
+
 -- ex7	
 
 
@@ -60,3 +69,4 @@ myZipWith f (a:as) (b:bs) = f a b : myZipWith f as bs
     -- let wAsInt = (read w :: Int)
     -- print(maior4 xAsInt yAsInt zAsInt wAsInt)
     -- print(converterNotaParaMencao x)
+    
