@@ -1,3 +1,5 @@
+import Data.List (sort)
+
 -- ex1
 maior4 :: Int -> Int -> Int -> Int -> Int
 maior4 x y z w 
@@ -36,6 +38,11 @@ histograma (x:xs) = h:s
           s = histograma (filter (\y -> y /= x) xs)
 
 -- ex5
+myZipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+myZipWith _ [] _ = []
+myZipWith _ _ [] = []
+myZipWith f (a:as) (b:bs) = f a b : myZipWith f as bs
+
 -- ex6
 -- ex7	
 
