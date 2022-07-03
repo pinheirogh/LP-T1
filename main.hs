@@ -53,7 +53,15 @@ aprovadosOrdemDeMedia ((n,a,b):xs)
 
 -- implementar função de comparação para sortBy caso optar por não importar bibliotecas https://youtu.be/N0K6EfWohmc
 
--- ex7	
+-- ex7
+-- a
+somaMatricial :: Num u => [[u]] -> [[u]] -> [[u]]
+somaMatricial [] _ = []
+somaMatricial _ [] = []
+somaMatricial (x:xs) (y:ys) = (myZipWith (+) x y) : somaMatricial xs ys
+
+-- b
+-- c
 
 
 
