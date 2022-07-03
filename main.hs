@@ -61,7 +61,17 @@ somaMatricial _ [] = []
 somaMatricial (x:xs) (y:ys) = (myZipWith (+) x y) : somaMatricial xs ys
 
 -- b
+matrizTransposta :: Num u => [[u]] -> [[u]]
+matrizTransposta [] = []
+matrizTransposta ([]:_) = []
+-- matrizTransposta [[]] = [[]]
+matrizTransposta x = map head x : matrizTransposta (map tail x)
+
 -- c
+-- multiplicacaoMatricial :: Num u => [[u]] -> [[u]] -> [[u]]
+-- multiplicacaoMatricial [] _ = []
+-- multiplicacaoMatricial _ [] = []
+
 
 
 
