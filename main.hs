@@ -1,4 +1,5 @@
 import Data.List (sortBy)
+import Data.List (transpose)
 import Data.Function (on)
 
 -- ex1
@@ -64,14 +65,13 @@ somaMatricial (x:xs) (y:ys) = (myZipWith (+) x y) : somaMatricial xs ys
 matrizTransposta :: Num u => [[u]] -> [[u]]
 matrizTransposta [] = []
 matrizTransposta ([]:_) = []
--- matrizTransposta [[]] = [[]]
 matrizTransposta x = map head x : matrizTransposta (map tail x)
 
 -- c
--- multiplicacaoMatricial :: Num u => [[u]] -> [[u]] -> [[u]]
--- multiplicacaoMatricial [] _ = []
--- multiplicacaoMatricial _ [] = []
-
+multiplicacaoMatricial :: Num u => [[u]] -> [[u]] -> [[u]]
+multiplicacaoMatricial [] _ = []
+multiplicacaoMatricial _ [] = []
+multiplicacaoMatricial x y = [[sum (myZipWith (*) x_indv y_indv) | y_indv <- (matrizTransposta y)] | x_indv <- x]
 
 
 
